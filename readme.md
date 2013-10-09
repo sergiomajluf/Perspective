@@ -1,6 +1,6 @@
-FBTimer
+Perspective
 ================================
-A chrome extension which lets you know the amount of time you spend on Facebook as you browse through Facebook!
+Perspective is a study about seeing yourself from a different point of view, done through a Google Chrome extension which lets you know the amount of time you actively spend online as you browse through Facebook!
 
 How do I install this?
 -------------------------
