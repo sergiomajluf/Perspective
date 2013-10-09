@@ -1,16 +1,19 @@
 #my_div {
-  width: 100%;
+  width: 613px;
   height: 100px;
   line-height: 35px;
   background-color: #FFF;
   margin-bottom: 12px;
   margin-top: 12px;
+  margin-left: 5px;
   border: 1px solid #d3d6db;
   font-family: 'lucida grande',tahoma,verdana,arial,sans-serif;
   color: #6a7480;
   font-size: 300%;
 }
-
+#contentArea #my_div {
+	width: 100%;
+}
 #my_time {
   text-align: center;
 }
