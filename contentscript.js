@@ -19,7 +19,7 @@ $(document).ready(function() {
     var fbDiv = document.getElementById('contentArea');
 
     if(fbDiv == undefined)
-      fbDiv = document.getElementById('content');
+      fbDiv = $('#content').find('[role="main"]').get(0);
 
     if (fbDiv.firstChild.id != "my_div" && showTimer)
       $(fbDiv).prepend('<div id="my_div"><p id="my_time"><p></div>');
@@ -40,7 +40,6 @@ $(document).ready(function() {
   }, false);
 
   window.addEventListener('blur', function(event) {
-    console.log('hello');
     clearInterval(interval_id);
     interval_id = 0;
   }, false);
@@ -55,8 +54,11 @@ $(document).ready(function() {
     }
   });
 
-  var link = document.getElementById('pageNav').getElementsByClassName('navLink')[0].href;
-  var personID = link.substring(link.lastIndexOf('/') + 1, link.indexOf('?') != -1 ? link.indexOf('?') : link.length -1);
+  var link = $('#pageNav').find('[data-gt="{"chrome_nav_item":"timeline_chrome"}"]').attr('href');
+   if(link == undefined)
+    link = $('#sidebar_navigation_top').find('._4g5p', '._521g').attr('href');
+
+  var personID = link.substring(link.lastIndexOf('/') + 1, link.indexOf('?') != -1 ? link.indexOf('?') : link.length );
   chrome.runtime.sendMessage({sendData: "time", personID: personID, showTimer: true}, function(response) {
     totalTime = response.totalTime;
     interval_id = setInterval(function() {totalTime += 1000; $('#my_time').text(updateClock(totalTime));}, 1000);
